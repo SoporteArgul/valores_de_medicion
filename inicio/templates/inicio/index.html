@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     {% load static %}
+    {% load livereload_tags %}
+    {% livereload_script %}
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -21,7 +23,7 @@
             <!-- Sidebar-->
             {% if request.user.is_authenticated %}
             <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">Argul y Cia</div>
+                <div class="sidebar-heading bg-dark" style="color:white">Argul y Cia</div>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Tabla</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Tabla</a>
@@ -37,22 +39,25 @@
             <!-- Page content wrapper-->
             <div id="page-content-wrapper">
                 <!-- Top navigation-->
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom" style="height:58px">
+
                     <div class="container-fluid">
                         {% if user.is_authenticated%}
                         <button class="btn btn-primary" id="sidebarToggle">Menu</button>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Salir</a></li>
+                                <li class="nav-item"><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                   </li>
+                                <li class="nav-item"><a class="nav-link" style="color:white" href="{% url 'logout' %}">Salir</a></li>
+                                
                             </ul>
-                            {% else %}
+                        {% else %}
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                                 <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Ingresar</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{% url 'singup' %}">Registrese</a></li>
-                            </ul>
-                            
-                            {% endif %}
+                            </ul>  
+                        {% endif %}
 
                         </div>
                     </div>
@@ -60,11 +65,13 @@
         {% endblock menu %}
         {% block contenido %}
                 <!-- Page content-->
+
                 <div class="container-fluid">
+                    <br>
+                    <header><h1 class="titulo">Generadores</h1></header>
                     <br>
                     <table class="table">
                         <thead class="thead-dark">
-                            
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">First</th>
@@ -85,12 +92,7 @@
                             <td>Thornton</td>
                             <td>@fat</td>
                           </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                          </tr>
+                          
                         </tbody>
                       </table>
                 </div>

@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.google'
+    'allauth.socialaccount.providers.google',
+    'livereload'
     
 ]
 
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'indice.urls'
@@ -154,6 +156,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL='/'
 
+LOGOUT_REDIRECT_URL = '/login'
+
 SOCIALACCOUNT_LOGIN_ON_GET=True
 
-#ALLOWED_HOSTS = ['0.0.0.0']
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT =8
+
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT=60
+
+
+
+ALLOWED_HOSTS = ['0.0.0.0']
+
+#LIVERELOAD_HOST=[]
+
+#LIVERELOAD_PORT=[]
+

@@ -18,23 +18,23 @@
                           <form  action="{% url 'singup' %}" method="post">
                               {% csrf_token %}
                               <div class="form-group row">
-                                  <label for="full_name" class="col-md-4 col-form-label text-md-right">Nombre</label>
+                                  <label for="first_name" class="col-md-4 col-form-label text-md-right">Nombre</label>
                                   <div class="col-md-6">
-                                      <input type="text" id="full_name" class="form-control" name="name">
+                                      <input type="text" id="first_name" class="form-control" name="first_name">
                                   </div>
                               </div>
 
                               <div class="form-group row">
-                                <label for="full_name" class="col-md-4 col-form-label text-md-right">Apellido</label>
+                                  <label for="last_name" class="col-md-4 col-form-label text-md-right">Apellido</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="full_name" class="form-control" name="apellido">
+                                    <input type="text" id="last_name" class="form-control" name="last_name">
                                 </div>
                               </div>
 
                               <div class="form-group row">
                                   <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail</label>
                                   <div class="col-md-6">
-                                      <input type="email" id="email_address" class="form-control" name="email">
+                                      <input type="email" id="email" class="form-control" name="email">
                                   </div>
                               </div>
 
@@ -50,14 +50,14 @@
                               <div class="form-group row">
                                     <label for="user_name" class="col-md-4 col-form-label text-md-right">Contraseña</label>
                                     <div class="col-md-6">
-                                        <input type="password" id="password" class="form-control" name="password1">
+                                        <input type="password" id="password1" class="form-control" name="password1">
                                     </div>
                               </div>
 
                               <div class="form-group row">
                                   <label for="user_name" class="col-md-4 col-form-label text-md-right">Reingrese contraseña</label>
                                   <div class="col-md-6">
-                                      <input type="password" id="password" class="form-control" name="password2">
+                                      <input type="password" id="password2" class="form-control" name="password2">
                                   </div>
                               </div>
 
@@ -68,8 +68,10 @@
                                       </button>
                                   </div>
                               </div>
+                
 
-                          </form>
+                          </form>              
+                          <br>
                       </div>
                   </div>
           </div>

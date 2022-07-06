@@ -6862,7 +6862,8 @@ textarea.form-control-lg {
 }
 
 .border-end {
-  border-right: 1px solid #dee2e6 !important;
+  border-right: 1px  !important;
+ 
 }
 
 .border-end-0 {
@@ -11434,8 +11435,11 @@ height: 1px;
 }
 
 body{
-  /*background-color: #06357a;*/
-  background: url(argul.jpg);
-  background-repeat: no-repeat;
-  background-size: auto;
+  background-color: #06357a; 
+}
+
+.titulo{
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
 }
