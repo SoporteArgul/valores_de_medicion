@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'livereload'
+    'livereload',
+    'lentes'
     
 ]
 
@@ -166,7 +167,7 @@ ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT=60
 
 
 
-ALLOWED_HOSTS = ['0.0.0.0']
+#ALLOWED_HOSTS = ['0.0.0.0']
 
 #LIVERELOAD_HOST=[]
 

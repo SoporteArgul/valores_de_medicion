@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Blog</title>
+</head>
+<style>
+    table,
+    th,
+    td 
+    {
+        border: 2px solid;
+    }
+</style>
+
+<body>
+    <h2 style="text-align:center"> Informacion Lentes</h2>
+    <table align="center" style="margin: 0px auto;">
+        <thead>
+            <tr>
+                <th>lentes ID</th>
+                <th>Valor 1</th>
+                <th>Valor 2r</th>
+                <th>Valor 3</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for lente in lentes %}
+            <tr>
+                <td>{{lentes.LentesId}}</td>
+                <td>{{lentes.Valor1}}</td>
+                <td>{{lentes.Valor2}}</td>
+                <td>{{Lentes.valor3}}</td>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
