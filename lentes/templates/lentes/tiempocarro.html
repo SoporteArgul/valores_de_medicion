@@ -1,0 +1,71 @@
+{% extends 'lentes/index.html' %}
+
+{% block Notificaciones %}
+{% endblock Notificaciones %}
+
+
+{% block Contenido %}
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="box-title">Tiempo de Carro:</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="card-body"> 
+                                <form method="POST" action="{% url 'tiempo_de_carro' %}">
+                                    {% csrf_token %}
+                                    <div class="sidebar-box">
+                                        Tipo de Proceso:
+                                        <select name="proceso" class="proceso">
+                                            
+                                            <option value="1">Hc</option>
+                                            <option value="2">Af</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="sidebar-box">
+                                        Tipo de Lente:
+                                        <select name="tipo" class="tipo">                    
+                                            <option value="1">Argon</option>
+                                            <option value="2">Ecoline</option>
+                                            <option value="3">Mig</option>
+                                            <option value="4">Fall dual</option>
+                                            <option value="5">Argon Elite</option>
+                                            <option value="6">Neon</option>
+                                            <option value="7">New classic</option>
+                                        </select>
+                                    </div>
+                                        Tiempo de ciclo:
+                                        <br>
+                                        <input type="number" placeholder="Ciclo" name="ciclo" />
+                                        <br>
+                                        <input type="button" value="Limpiar" onclick="location.reload()"/>
+                                        <br>
+                                        <input type="submit" value="Guardar">
+                                </form>
+                                <form>
+                                    <br>
+                                    Tipo de proceso: <label class="resultado"></label>
+                                    <br><br>
+                                    Tipo de Lente: <label class="resultado2"></label>
+                                    <br><br>
+                                    Tiempo de ciclo: <label id="log"></label>
+                                    <br><br>
+                                    Tiempo de Carro: <label id="log1">0</label> Min
+                                    <br>
+                                </form>
+                            </div>
+                        </div>  
+                    </div> <!-- /.row -->
+                    <div class="card-body"></div>
+                </div>
+            </div><!-- /# column -->
+        </div>
+<div class="clearfix"></div>
+{% endblock Contenido %}
+
+ 

@@ -1,0 +1,91 @@
+
+{% extends 'lentes/index.html' %}
+
+{% block Notificaciones %}
+{% endblock Notificaciones %}
+
+ 
+{% block Contenido %}
+<div class="content">
+<!-- Animated -->
+<div class="animated fadeIn">
+<!--  Traffic  -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="box-title">Fin de O.P:</h4>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card-body"> 
+                        <form>
+                            <div class="sidebar-box">
+                                Tipo de Proceso:
+                                <select name="proceso" class="proceso">
+                                    <option value="" selected>Elegir</option>
+                                    <option value="Hc">Hc</option>
+                                    <option value="Af">Af</option>
+                                </select>
+                            </div>
+                            <div class="sidebar-box">
+                                Tipo de Lente:
+                                <select name="tipo" class="tipo">
+                                    <option value="" selected>Elegir</option>
+                                    <option value="Argon">Argon</option>
+                                    <option value="Ecoline">Ecoline</option>
+                                    <option value="Mig">Mig</option>
+                                    <option value="Dual">Fall dual</option>
+                                    <option value="Elite">Argon Elite</option>
+                                    <option value="Neon">Neon</option>
+                                    <option value="New">New classic</option>
+                                    <option value="Aviator">Aviator</option>
+                                </select>
+                            </div>
+                                Cant. de Rotulos:
+                                <br>
+                            <input id="rotulos" type="number" placeholder="n°"/>
+                            <br>
+                                Piezas por caja:
+                                <br>
+                                <input id="piezas" type="number" placeholder="n°"/>
+                                <br>
+                                <input type="button" value="Limpiar" onclick="location.reload()"/>
+                            </form>
+
+                            <form>
+                                <br>
+                                Tipo de proceso: <label class="resultado"></label>
+                                <br><br>
+                                Tipo de Lente: <label class="resultado2"></label>
+                                <br><br>
+                                Cant. de Rotulos: <label id="log">0</label> Cajas
+                                <br><br>
+                                Piezas por caja: <label id="log1">0</label> Pcs
+                                <br><br>
+                                Faltan: <label id="log2">0</label> Carros
+                                <br>
+                            </form>
+
+                        </div>
+                    </div>  
+                </div> <!-- /.row -->
+            <div class="card-body"></div>
+        </div>
+    </div><!-- /# column -->
+</div>
+<!--  /Traffic -->
+<div class="clearfix"></div>
+{% endblock Contenido %}
+
+{% block  Footer %}
+
+{% endblock Footer %}
+
+
+
+
+   
+
+
+
