@@ -1,7 +1,8 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .forms import tiempo_de_carro as carro
-
+from .forms import tiempo_carro as carro
+from .models import tiempo_de_carro as t_carro
 
 @login_required(login_url='/login')
 def inicio(request):
@@ -11,11 +12,19 @@ def inicio(request):
 
 
 def tiempo_de_carro(request):
-    form=carro()
     if request.method=='POST':
-        form=carro(request.POST)      
-        form.save()
-    return render(request,'lentes/tiempocarro.html',{'form':form})
+        formulario=carro(request.POST) 
+        if formulario.is_valid():
+            print('llegue aca')
+            data=formulario.cleanned_data     
+            lentes=t_carro(
+                tipo_proceso=data['tipo_proceso'],
+                tipo_lente=data['tipo_lente'],
+                tiempo_ciclo=data['tiempo_ciclo']
+            )
+            lentes.save()
+    formulario=carro()
+    return render(request,'lentes/tiempocarro.html',{'form':formulario})
 
 
 

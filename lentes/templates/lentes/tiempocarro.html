@@ -20,7 +20,7 @@
                                     {% csrf_token %}
                                     <div class="sidebar-box">
                                         Tipo de Proceso:
-                                        <select name="proceso" class="proceso">
+                                        <select name="tipo_proceso" id='tipo_proceso' class="proceso">
                                             
                                             <option value="1">Hc</option>
                                             <option value="2">Af</option>
@@ -29,7 +29,7 @@
 
                                     <div class="sidebar-box">
                                         Tipo de Lente:
-                                        <select name="tipo" class="tipo">                    
+                                        <select name="tipo_lente" id='tipo_lente' class="tipo">                    
                                             <option value="1">Argon</option>
                                             <option value="2">Ecoline</option>
                                             <option value="3">Mig</option>
@@ -41,7 +41,7 @@
                                     </div>
                                         Tiempo de ciclo:
                                         <br>
-                                        <input type="number" placeholder="Ciclo" name="ciclo" />
+                                        <input type="number" placeholder="Ciclo" name="tiempo_ciclo" id="tiempo_ciclo" />
                                         <br>
                                         <input type="button" value="Limpiar" onclick="location.reload()"/>
                                         <br>
