@@ -20,60 +20,61 @@
                                 <div class="col-lg-8">
                                     <div class="card-body">
 
-<form>
-    <div class="sidebar-box">
-    Turno anterior:
-        <br>
-    <input id="caja1" type="number" placeholder="Caja N°" />
-    / <input id="cant1" type="number" placeholder="Cantidad" />
-    <br>
-    </div>
-    <div class="sidebar-box">
-    Turno actual:
-    <br>
-    <input id="caja2" type="number" placeholder="Caja N°" />
-    / <input id="cant2" type="number" placeholder="Cantidad" />
-    <br>
-    </div>
-    Piezas por caja:
-    <br>
-    <input id="piezasxcaja" type="number" placeholder="Cantidad" />
-    <br>
-    <div class="sidebar-box">
-    Tipo de lente:
-    <select class="lentes">
-        <option value="" selected>Elegir</option>
-        <option value="Ecoline">Ecoline</option>
-        <option value="Neon">Neon</option>
-        <option value="Argon">Argon</option>
-        <option value="Mig">Mig</option>
-    </select>
-    </div>
-    Peso en Kg:
-    <br>
-    <input id="kg" type="textfield" placeholder="Kg" />
-    <br>
-<!--        Descarte de piezas:
-        <br>
-    <input id="piezasmalas" type="textfield" placeholder="Cantidad" />
-    <br> -->
-    <input type="button" value="Limpiar" onclick="location.reload()"/>
-    <br>
+                                            <form method='POST' action="{% url 'control_de_descartes' %}">
+                                                {% csrf_token %}
+                                                
+                                                
 
-</form>
-<form>
-    <br>
-    Piezas buenas: <label id="resultado2" class="resultado2"></label>
-    <br><br>
-    Tipo de lente: <label id="resultado" class="resultado"></label>
-    <br><br>
-    Peso en Kg: <label id="log"></label>
-    <br><br>
-    Piezas malas: <label id="log1"></label> Pcs
-    <br><br>
-    Scrap %: <label id="scrap"></label>
-    <br><br>
-</form>
+                                                <div class="sidebar-box">
+                                                Turno anterior:
+                                                    <br>
+                                                <input id="caja1" type="number" placeholder="Caja N°" />
+                                                / <input id="cant1" type="number" placeholder="Cantidad" />
+                                                <br>
+                                                </div>
+                                                <div class="sidebar-box">
+                                                Turno actual:
+                                                <br>
+                                                <input id="caja2" type="number" placeholder="Caja N°" />
+                                                / <input id="cant2" type="number" placeholder="Cantidad" />
+                                                <br>
+                                                </div>
+                                                Piezas por caja:
+                                                <br>
+                                                <input id="piezasxcaja" type="number" placeholder="Cantidad" />
+                                                <br>
+                                                <div class="sidebar-box">
+                                                Tipo de lente:
+                                                <select class="lentes">
+                                                    <option value="" selected>Elegir</option>
+                                                    <option value="Ecoline">Ecoline</option>
+                                                    <option value="Neon">Neon</option>
+                                                    <option value="Argon">Argon</option>
+                                                    <option value="Mig">Mig</option>
+                                                </select>
+                                                </div>
+                                                Peso en Kg:
+                                                <br>
+                                                <input id="kg" type="textfield" placeholder="Kg" />
+                                                <br>
+                                                <input type="submit" class='btn btn-success' value="Guardar" />
+                                                <input type="button"  value="Limpiar" onclick="location.reload()"/>
+                                                <br>
+
+                                            </form>
+                                            <form>
+                                                <br>
+                                                Piezas buenas: <label id="resultado2" class="resultado2"></label>
+                                                <br><br>
+                                                Tipo de lente: <label id="resultado" class="resultado"></label>
+                                                <br><br>
+                                                Peso en Kg: <label id="log"></label>
+                                                <br><br>
+                                                Piezas malas: <label id="log1"></label> Pcs
+                                                <br><br>
+                                                Scrap %: <label id="scrap"></label>
+                                                <br><br>
+                                            </form>
 
                                     </div>
                                 </div>  
@@ -86,13 +87,4 @@
 
     <div class="clearfix"></div>
 
-    <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-6 text-right">
-                        Copyright &copy; 2022 Argul y Cia
-                    </div>
-                </div>
-            </div>
-    </footer>
 {% endblock Contenido %}
