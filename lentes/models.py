@@ -1,10 +1,15 @@
+from asyncio import Task
 from django.db import models
 from django.forms import CharField, IntegerField
 from django import forms
+from django.db.models import Sum
+
 
 proceso_status=(('hc','Hc'),('af','Af'))
 lente_status=[('argon','Argon'),('ecoline','Ecoline'),('mig','Mig'),('fall dual','Fall dual'),('argon elite','Argon Elite'),('neon','Neon'),('new classic','New classic'),('aviator','Aviator')]
 lente_tipo=[('argon','Argon'),('ecoline','Ecoline'),('mig','Mig'),('neon','Neon')]
+
+
 
 class tiempo_de_carro(models.Model):
 
@@ -24,12 +29,23 @@ class tiempo_de_carro(models.Model):
         verbose_name= 'Tipo de lente')
 
     tiempo_ciclo=models.IntegerField(
-        verbose_name='Tiempo de ciclo'
+        verbose_name='Tiempo de ciclo',
+        blank=False,
+        null=True
     )
     
+    
+    tiempo_carro=models.IntegerField(
+        default = None,
+        null=True)
+
+    
+        
+          
+
+
     class Meta:
         db_table = 'tiempo_de_carro'
-
 
 
 

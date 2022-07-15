@@ -48,6 +48,30 @@
                                     Tiempo de Carro: <label id="log1">0</label> Min
                                     <br>
                                 </form>
+                                <br>
+                                <br>
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Tipo Proceso</th>
+                                        <th scope="col">Tipo Lente </th>
+                                        <th scope="col">Tiempo de ciclo</th>
+                                        <th scope='col'>Tiempo de carro</th>
+                                      </tr>
+                                    </thead>
+                                    
+                                    
+                                    {% for item in datos  %}
+                                      <tbody>  
+                                        <tr>                               
+                                         <td>{{item.tipo_proceso}}</td>
+                                         <td>{{item.tipo_lente}}</td>
+                                         <td>{{item.tiempo_ciclo}}</td>
+                                         <td>{{item.tiempo_carro}}</td>
+                                         </tr>
+                                        </tbody> 
+                                    {% endfor %}   
+                            </table>
                             </div>
                         </div>  
                     </div> <!-- /.row -->

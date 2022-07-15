@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'livereload',
     'lentes'
     
 ]
@@ -60,7 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'livereload.middleware.LiveReloadScript',
+    
 ]
 
 ROOT_URLCONF = 'indice.urls'
@@ -91,7 +90,7 @@ WSGI_APPLICATION = 'indice.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'json_1',
+        'NAME': 'json_3',
         'USER': 'root',
         'PASSWORD': 'Argul1266',
         'HOST': '172.18.0.165',

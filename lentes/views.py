@@ -12,13 +12,17 @@ def inicio(request):
 
 
 def tiempo_de_carro(request):
+    datos=ModeloCarro.objects.all()
     formulario=FormularioCarro
     if request.method=='POST':
         formulario=FormularioCarro(request.POST  or None, request.FILES or None)
         if formulario.is_valid():
-            formulario.save()
+            data=formulario.cleaned_data            
+            formulario.save()    
             return redirect('/lentes/tiempo_de_carro')
-    return render(request,'lentes/tiempocarro.html',{'formulario':formulario})
+    print(datos)
+    return render(request,'lentes/tiempocarro.html',{'formulario':formulario,
+                                                      'datos':datos})
 
 
 
@@ -36,3 +40,15 @@ def control_de_descartes(request):
 
 def fin_o_p(request):
     return render(request,'lentes/finop.html',{})
+
+
+
+def calculo_1():
+    modelo=ModeloCarro()
+    proceso=modelo.tipo_proceso['Hc']
+    lente=modelo.tipo_lente['Argon']
+    tiempo_ciclo=modelo.tiempo_ciclo
+
+    if proceso == 'Hc' and lente == 'Argon':
+        print('entramos')
+

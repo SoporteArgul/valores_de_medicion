@@ -8,7 +8,7 @@ window.addEventListener("keypress", function(event){
         event.preventDefault();
     }
 }, false);
-const selectElement1 = document.querySelector('.proceso');
+const selectElement1 = document.querySelector('proceso');
 selectElement1.addEventListener('change', (event) => {
 const proceso = document.querySelector('.resultado');
 proceso.textContent = `${event.target.value}`;
@@ -16,7 +16,7 @@ tipoproceso = proceso.textContent;
 lentes();
 });
 
-const selectElement2 = document.querySelector('.tipo');
+const selectElement2 = document.querySelector('tipo');
 selectElement2.addEventListener('change', (event) => {
 const tipo = document.querySelector('.resultado2');
 tipo.textContent = `${event.target.value}`;
