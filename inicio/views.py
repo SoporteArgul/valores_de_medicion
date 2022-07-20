@@ -20,7 +20,7 @@ def login_request(request,*args, **kwargs):
             user_obj=authenticate(request,username=username,password=password)
             if user_obj is not None:
                 login(request,user_obj)
-                return HttpResponseRedirect('/',{})
+                return HttpResponseRedirect('/lentes',{})
             else:
                 return render(request,'inicio/login.html',{'form':form,'msg':'Usuario o Contraseña incorrectos'})
         else:

@@ -13,11 +13,12 @@ def inicio(request):
 
 def tiempo_de_carro(request):
     datos=ModeloCarro.objects.all()
+
     formulario=FormularioCarro
     if request.method=='POST':
         formulario=FormularioCarro(request.POST  or None, request.FILES or None)
         if formulario.is_valid():
-            data=formulario.cleaned_data            
+            data=formulario.cleaned_data 
             formulario.save()    
             return redirect('/lentes/tiempo_de_carro')
     print(datos)

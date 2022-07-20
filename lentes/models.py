@@ -19,30 +19,24 @@ class tiempo_de_carro(models.Model):
         choices=proceso_status,
         default='Hc',
         max_length=2,
-        verbose_name='Tipo de proceso')
+        )
 
     tipo_lente= models.CharField(
         max_length=12,
         null=False,blank=False,
         choices=lente_status,
         default='argon',
-        verbose_name= 'Tipo de lente')
+        )
 
     tiempo_ciclo=models.IntegerField(
-        verbose_name='Tiempo de ciclo',
+        
         blank=False,
         null=True
     )
-    
-    
+      
     tiempo_carro=models.IntegerField(
         default = None,
         null=True)
-
-    
-        
-          
-
 
     class Meta:
         db_table = 'tiempo_de_carro'
@@ -52,11 +46,36 @@ class tiempo_de_carro(models.Model):
 
 
 class control_de_descartes(models.Model):
-        t_ant_caja_n=models.IntegerField()
-        t_ant_cantidad_n=models.IntegerField()
-        t_act_caja_n=models.IntegerField()
-        t_act_cantidad_n=models.IntegerField()
-        piezas_por_caja=models.IntegerField()
+        t_ant_caja_n=models.IntegerField(
+            default="",
+            null=False,  
+            blank=False
+        )
+        t_ant_cantidad_n=models.IntegerField(
+            default="",
+            null=False,  
+            blank=False
+        )
+        t_act_caja_n=models.IntegerField(
+            default="",
+            null=False,  
+            blank=False
+        )
+        t_act_cantidad_n=models.IntegerField(
+            default="",
+            null=False,  
+            blank=False
+        )
+        piezas_por_caja=models.IntegerField(
+            default="",
+            null=False,  
+            blank=False
+        )
+        peso_en_kg=models.IntegerField(
+            default=0,
+            null=False,  
+            blank=False
+        )
         tipo_lente=models.CharField(
             max_length=12,
             null=False,  
@@ -65,11 +84,10 @@ class control_de_descartes(models.Model):
             default='argon',
             verbose_name= 'Tipo de lente'
         )
-        peso_en_kg=IntegerField()
 
-
-
-
+        class Meta:
+            db_table = 'control_de_descartes'
+        
 
 class  fin_de_op(models.Model):
     tipo_proceso=CharField()
