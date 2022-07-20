@@ -19,7 +19,10 @@
                                 <div class="row">
                                     <form method='post' action='control_de_descartes'>
                                         {% csrf_token %}
-                                        {{formulario_descartes.as_table}}
+                                        
+                                        
+                                            {{formulario_descartes}}
+                                       
                                         <br>
                                         <input type="button" value="Guardar" onclick="Control.Descarte()"/>
                                         <br>

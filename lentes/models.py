@@ -1,4 +1,5 @@
 from asyncio import Task
+from cProfile import label
 from django.db import models
 from django.forms import CharField, IntegerField
 from django import forms
@@ -34,7 +35,8 @@ class tiempo_de_carro(models.Model):
         null=True
     )
       
-    tiempo_carro=models.IntegerField(
+    tiempo_carro=models.CharField(
+        max_length=50,
         default = None,
         null=True)
 
@@ -49,12 +51,14 @@ class control_de_descartes(models.Model):
         t_ant_caja_n=models.IntegerField(
             default="",
             null=False,  
-            blank=False
+            blank=False,
+            
         )
         t_ant_cantidad_n=models.IntegerField(
             default="",
             null=False,  
-            blank=False
+            blank=False,
+            
         )
         t_act_caja_n=models.IntegerField(
             default="",

@@ -10,8 +10,8 @@ var Tiempos = new function(){
 	 tipoproceso = this.tipoProceso.value;
 	 var tipolente;
 	 tipolente = this.tipoLente.value;
-	 var ciclo;
-	 ciclo = parseInt(this.tiempoCiclo.value);
+	 
+	 var ciclo = parseInt(this.tiempoCiclo.value);
 	 var tiempocarro;
 	 
 	// Calculo de tiempo de carro
@@ -45,6 +45,8 @@ var Tiempos = new function(){
 	}
 	// Mostrar datos en pagina
 	this.Resultado = document.getElementById("resultado");
+	var Myelement = document.forms['formTiempoCarro']['tiempo_carro']
+	Myelement.setAttribute('value',tiempocarro.toFixed(1))
 	return this.Resultado.innerHTML = tiempocarro.toFixed(1);
 	}
 	}

@@ -17,21 +17,23 @@
                 <div class="center">
                     <div class="col-lg-8">
                         <div class="row">
-                            <form method='post'action= "{% url 'tiempo_de_carro' %}">
+                            <form method='post'action= "{% url 'tiempo_de_carro' %}" name="formTiempoCarro">
                             {% csrf_token %} 
                                 <div class='sidebar-box'>
                                 {{formulario.as_p}}
+            
                                 </div>
                                 
                                 <br>
-                                <input type="button" value="Mostrar tiempo" onclick="Tiempos.Carros()"/>
-                                <input type='submit' value='Guardar tiempo' >
+                                
+                                <input type='submit' value='Guardar tiempo' onclick="Tiempos.Carros()">
                                 <br>
                             </form>            
                             <form>
                                 <br><br>
-                                Tiempo de Carro:<br><label id="resultado">0</label> Min
+                                Tiempo de Carro:<br><label id="resultado">0</label>Min
                                 <br><br>
+                                
                             </form>
                     </div>
                 </div>
@@ -43,7 +45,7 @@
     <thead>
       <tr>
         
-        <th scope="col">Tipo Producto</th>
+        <th scope="col">Tipo Proceso</th>
         <th scope="col">Tipo Lente</th>
         <th scope="col">Tiempo de Ciclo</th>
         <th scope="col">Tiempo de Carro</th>
