@@ -20,7 +20,7 @@ class tiempo_carro(forms.ModelForm):
                     'id':'resultado',
                     'name':'tiempoCarro',
                     'value':'',
-                    'class':'sidebar-box'
+                    'class':'sidebar-box oculto'
               })
           }
           model=tiempo_de_carro
@@ -29,37 +29,82 @@ class tiempo_carro(forms.ModelForm):
 
 
 
-"""class descartes(forms.ModelForm):
+class descartes(forms.ModelForm):
     class Meta:
         widgets={
         't_ant_caja_n': forms.NumberInput(attrs={
             'id':'caja1',
             }),
-        't_ant_cantidad_n':forms.NumberInput(attrs={'id':'cant1'}),
-        't_act_caja_n':forms.NumberInput(attrs={'id':'caja2'}),
-        't_act_cantidad_n':forms.NumberInput(attrs={'id':'cant2'}),
-        'piezas_por_caja':forms.NumberInput(attrs={'id':'piezasxcaja'}),
-        'tipo_lente':forms.Select(attrs={'id':'tipolente'}),
-        'peso_en_kg':forms.NumberInput(attrs={'id':'grs'})
+        't_ant_cantidad_n':forms.NumberInput(attrs={
+            'id':'cant1',
+            }),
+        't_act_caja_n':forms.NumberInput(attrs={
+            'id':'caja2'
+        }),
+        't_act_cantidad_n':forms.NumberInput(attrs={
+            'id':'cant2'
+            }),
+        'piezas_por_caja':forms.NumberInput(attrs={
+            'id':'piezasxcaja'
+            }),
+        'tipo_lente':forms.Select(attrs={
+            'id':'tipolente'
+            }),
+        'peso_en_kg':forms.NumberInput(attrs={
+            'id':'grs'
+            }),
+        'piezas_descartadas':forms.NumberInput(attrs={
+            'id':'scrap',
+            'value':''
+        }),
+        'piezas_buenas':forms.NumberInput(attrs={
+            'id':'buenas',
+            'value':''
+
+        }),
+        'piezas_malas':forms.NumberInput(attrs={
+            'id':'malas',
+            'value':''
+        })
+
         }
         model=control_de_descartes
-        fields=['t_ant_caja_n','t_ant_cantidad_n','t_act_caja_n','t_act_cantidad_n','piezas_por_caja','tipo_lente','peso_en_kg']
-"""
+        fields=['t_ant_caja_n','t_ant_cantidad_n','t_act_caja_n','t_act_cantidad_n','piezas_por_caja','tipo_lente','peso_en_kg','piezas_descartadas','piezas_malas','piezas_buenas']
 
-class descartes(forms.Form):
-     t_ant_cantidad_n=forms.IntegerField(label='Turno anterior:')
-     t_ant_cantidad_n=forms.IntegerField(label='')
-     t_act_caja_n=forms.IntegerField(label='Turno actual:')
-     t_act_cantidad_n=forms.IntegerField(label='')
-     piezas_por_caja=forms.IntegerField(label='Piezas por caja:')
-   
-     peso_en_kg=forms.IntegerField(label='Peso en gramos')
+
 
 
 
 class finop(forms.ModelForm):
     class Meta:
+        widgets={
+            'tipo_proceso':forms.Select(
+                attrs={
+                    'id':'proceso'
+                }),
+            'tipo_lente':forms.Select(
+                attrs={
+                    'id':'tipo'
+                }),
+            'cant_rotulos':forms.NumberInput(
+                attrs={
+                    'id':'rotulos'
+                }),
+            'piezas_por_caja':forms.NumberInput(
+                attrs={
+                    'id':'piezas'
+                }),
+            'carros':forms.NumberInput(
+                attrs={
+                    'id':'resultado',
+                    'name':'finOp',
+                    'value':'',
+                    'class':'sidebar-box '
+
+                }
+            )
+        }
         model=fin_de_op
-        fields='__all__'
+        fields=['tipo_proceso','tipo_lente','cant_rotulos','piezas_por_caja','carros']
 
     

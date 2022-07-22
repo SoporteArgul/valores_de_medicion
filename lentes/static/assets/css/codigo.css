@@ -61,10 +61,15 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
   background-color: #333;
-}
+  
+} 
 .fcc-btn {
   background-color: #199319;
   color: white;
   padding: 15px 25px;
   text-decoration: none;
+}
+
+.oculto{
+  visibility:hidden;
 }

@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'lentes'
+    'lentes',
+    'widget_tweaks'
     
 ]
 
@@ -170,6 +171,7 @@ ACCOUNT_UNIQUE_EMAIL = True
 
 ACCOUNT_EMAIL_REQUIRED = True
 
+USE_TZ = True 
 
 #ALLOWED_HOSTS = ['0.0.0.0']
 

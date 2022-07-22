@@ -44,6 +44,7 @@ var Tiempos = new function(){
 		}
 	}
 	// Mostrar datos en pagina
+	
 	this.Resultado = document.getElementById("resultado");
 	var Myelement = document.forms['formTiempoCarro']['tiempo_carro']
 	Myelement.setAttribute('value',tiempocarro.toFixed(1))

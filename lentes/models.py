@@ -1,10 +1,5 @@
-from asyncio import Task
-from cProfile import label
 from django.db import models
-from django.forms import CharField, IntegerField
-from django import forms
-from django.db.models import Sum
-
+from django.utils import timezone
 
 proceso_status=(('hc','Hc'),('af','Af'))
 lente_status=[('argon','Argon'),('ecoline','Ecoline'),('mig','Mig'),('fall dual','Fall dual'),('argon elite','Argon Elite'),('neon','Neon'),('new classic','New classic'),('aviator','Aviator')]
@@ -39,6 +34,7 @@ class tiempo_de_carro(models.Model):
         max_length=50,
         default = None,
         null=True)
+
 
     class Meta:
         db_table = 'tiempo_de_carro'
@@ -76,7 +72,7 @@ class control_de_descartes(models.Model):
             blank=False
         )
         peso_en_kg=models.IntegerField(
-            default=0,
+            default=None,
             null=False,  
             blank=False
         )
@@ -88,13 +84,63 @@ class control_de_descartes(models.Model):
             default='argon',
             verbose_name= 'Tipo de lente'
         )
-
+       
+        piezas_buenas=models.CharField(
+            max_length=10,
+            default=None,
+            null=False,  
+            blank=False
+        )
+        piezas_malas=models.CharField(
+            max_length=10,
+            default=None,
+            null=False,  
+            blank=False
+        )
+        piezas_descartadas=models.CharField(
+            max_length=10,
+            default=None,
+            null=False,  
+            blank=False
+        )
+        
         class Meta:
             db_table = 'control_de_descartes'
         
 
+
+
 class  fin_de_op(models.Model):
-    tipo_proceso=CharField()
-    tipo_lente=CharField()
-    cant_rotulos=IntegerField()
-    piezas_por_caja=IntegerField()
+    
+    tipo_proceso=models.CharField(
+        null=False,
+        blank=False,
+        choices=proceso_status,
+        default=None,
+        max_length=2
+    )
+    tipo_lente=models.CharField(
+        max_length=12,
+        null=False,
+        blank=False,
+        choices=lente_status,
+        default=None
+    )
+    cant_rotulos=models.IntegerField(
+        default=None,
+        null=False,  
+        blank=False
+    )
+    piezas_por_caja=models.IntegerField(
+        default=None,
+        null=False,  
+        blank=False
+    )
+    carros=models.IntegerField(
+        default=None,
+        null=False,  
+        blank=False
+    )
+
+    class Meta:
+        db_table = 'fin de operacion'

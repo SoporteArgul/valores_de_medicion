@@ -1,173 +1,54 @@
-<!doctype html>
-<html class="no-js" lang="">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Fin de O.P</title>
-    <meta name="description" content="Fin de O.P">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'lentes/index.html' %}
+{% load widget_tweaks %}
 
-    <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
-    <link rel="shortcut icon" href="images/logo2.png">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="assets/css/codigo.css">
-
-</head>
-<body>
-    <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Inicio</a>
-                    </li>
-                    <li class="menu-title">Sector</li><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Lentes</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-file-word-o"></i><a href="tiempocarro.html">Tiempo de Carro</a></li>
-                            <li><i class="fa fa-file-word-o"></i><a href="descarte.html">Control de Descarte</a></li>
-                            <li><i class="fa fa-file-word-o"></i><a href="finop.html">Fin de O.P</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Produccion</a>
-                        <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-file-word-o"></i><a href="Pestandar.html">Pagina Produccion</a></li>
-                        <li><i class="fa fa-file-word-o"></i><a href="Pestandar.html">Pagina Produccion</a></li>
-                        <li><i class="fa fa-file-word-o"></i><a href="Pestandar.html">Pagina Produccion</a></li>
-                    </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Mantenimiento</a>
-                        <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-file-word-o"></i><a href="Pestandar.html">Pagina Mantenimiento</a></li>
-                        <li><i class="fa fa-file-word-o"></i><a href="Pestandar.html">Pagina Mantenimiento</a></li>
-                        <li><i class="fa fa-file-word-o"></i><a href="Pestandar.html">Pagina Mantenimiento</a></li>
-                    </ul>
-                    </li>
-
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </aside>
-    <!-- /#left-panel -->
-
-    <!-- Right Panel -->
-
-    <div id="right-panel" class="right-panel">
-
-        <!-- Header-->
-        <header id="header" class="header">
-            <div class="top-left">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="images/logoArgul.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+{% block Contenido %}
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">Fin de O.P:</h4>
                 </div>
-            </div>
-            
-        </header><!-- /header -->
- 
-<!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            <div class="animated fadeIn">
+                <div class="center">
+                    <div class="col-lg-8">
+                        <div class="row">      
+                            <form method='post' action="{% url 'fin_op' %}" name='formFinOp'>
+                                <div class="sidebar-box">
+                                <label class="form-label">Tipo de Producto</label><br>
+                                {% render_field formulario.tipo_proceso class='sidebar-box' %}
+                                {{formulario.errors}}<br>
+                                </div>
+                            
+                                <div class="sidebar-box">
+                                <label class="form-label">Tipo de Lente</label><br>
+                                {% render_field formulario.tipo_lente %}
+                                {{formulario.errors}}<br>
+                                </div>        
 
-                <!--  Traffic  -->
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="box-title">Fin de O.P:</h4>
-                            </div>
-                            <div class="center">
-                                <div class="col-lg-8">
-                                    <div class="row">
-                                        
-<form>
-    <div class="sidebar-box">
-        Tipo de Proceso:
-    <select id="proceso">
-        <option value="" selected>Elegir</option>
-        <option value="Hc">Hc</option>
-        <option value="Af">Af</option>
-    </select>
-    </div>
+                                <div>
+                                <label class="form-label">Cantidad de rotulos</label><br>
+                                {% render_field formulario.cant_rotulos %}<br>
+                                </div> 
+                                
+                                <div>
+                                <label class="form-label">Piezas por caja</label><br>
+                                {% render_field formulario.piezas_por_caja %}<br>
+                                {% render_field formulario.carros class="oculto"%}<br>
+                                </div>    
 
-    <div class="sidebar-box">
-        Tipo de Lente:
-    <select id="tipo">
-        <option value="" selected>Elegir</option>
-        <option value="Argon">Argon</option>
-        <option value="Ecoline">Ecoline</option>
-        <option value="Mig">Mig</option>
-        <option value="Dual">Fall dual</option>
-        <option value="Elite">Argon Elite</option>
-        <option value="Neon">Neon</option>
-        <option value="New">New classic</option>
-        <option value="Aviator">Aviator</option>
-    </select>
-    </div>
-        Cant. de Rotulos:
-        <br>
-    <input id="rotulos" type="number" placeholder="n°"/>
-    <br>
-        Piezas por caja:
-        <br>
-    <input id="piezas" type="number" placeholder="n°"/>
-    <br>
-    <input type="button" value="Guardar" onclick="Fin.OP()"/>
-    </form>
-    <form>
-    <br><br>
-    Faltan para finalizar la orden:<br><label id="resultado">0</label> Carros
-    <br><br>
-    </form>
-
-                                    </div>
-                                </div>  
-                            </div>
-                            <div class="card-body"></div>
+                                <input type="submit" value="Guardar" onclick="Fin.OP()"/>
+                            </form>
+                            <form>
+                                <br><br>
+                                Faltan para finalizar la orden:<br><label id="resultado">0</label> Carros
+                                <br><br>
+                            </form>
                         </div>
-                    </div>
-                </div>
-
-    <div class="clearfix"></div>
-
-    <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-6 text-right">
-                        Copyright &copy; 2022 Argul y Cia
-                    </div>
-                </div>
+                    </div>  
+                </div>                
             </div>
-    </footer>
+        </div>
+    </div>
+</div>
+{% endblock Contenido %}
 
-
-    </div><!-- /#right-panel -->
-
-    <!-- Right Panel -->
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/init/finop.js"></script>
-
-
-</body>
-</html>
