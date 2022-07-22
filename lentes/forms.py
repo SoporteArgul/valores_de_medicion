@@ -7,15 +7,19 @@ class tiempo_carro(forms.ModelForm):
           widgets={
               'tipo_proceso': forms.Select(attrs={
                   'id':'proceso',
-                  'class':'sidebar-box'}),
+                  'class':'sidebar-box'
+                }),
               'tipo_lente': forms.Select(attrs={
                   'id':'tipo',
-                  'class':'sidebar-box'
-                  
+                  'class':'sidebar-box'   
+              }),
+              'turno':forms.Select(attrs={
+                'id':'sidebar-box' 
               }),
               'tiempo_ciclo': forms.NumberInput(attrs={
                   'id':'ciclo',
-                  'class':'sidebar-box'}),
+                  'class':'sidebar-box'
+            }),
               'tiempo_carro':forms.TextInput(attrs={
                     'id':'resultado',
                     'name':'tiempoCarro',
@@ -24,7 +28,7 @@ class tiempo_carro(forms.ModelForm):
               })
           }
           model=tiempo_de_carro
-          fields=['tipo_proceso','tipo_lente','tiempo_ciclo','tiempo_carro'] 
+          fields=['tipo_proceso','tipo_lente','turno','tiempo_ciclo','tiempo_carro'] 
 
 
 
@@ -65,11 +69,12 @@ class descartes(forms.ModelForm):
         'piezas_malas':forms.NumberInput(attrs={
             'id':'malas',
             'value':''
-        })
+        }),
+        'turno':forms.Select()
 
         }
         model=control_de_descartes
-        fields=['t_ant_caja_n','t_ant_cantidad_n','t_act_caja_n','t_act_cantidad_n','piezas_por_caja','tipo_lente','peso_en_kg','piezas_descartadas','piezas_malas','piezas_buenas']
+        fields=['t_ant_caja_n','t_ant_cantidad_n','t_act_caja_n','t_act_cantidad_n','piezas_por_caja','tipo_lente','peso_en_kg','turno','piezas_descartadas','piezas_malas','piezas_buenas']
 
 
 
@@ -100,11 +105,21 @@ class finop(forms.ModelForm):
                     'name':'finOp',
                     'value':'',
                     'class':'sidebar-box '
-
-                }
-            )
+                }),
+            'turno':forms.Select()
         }
         model=fin_de_op
-        fields=['tipo_proceso','tipo_lente','cant_rotulos','piezas_por_caja','carros']
+        fields=['tipo_proceso','tipo_lente','cant_rotulos','piezas_por_caja','turno','carros']
 
-    
+
+
+class BusquedaCarro(forms.Form):
+    busqueda_carro=forms.CharField(label='Buscador',max_length=20)
+
+
+class BusquedaControl(forms.Form):
+    busqueda_control=forms.CharField(label='Buscador',max_length=20)
+
+
+class BusquedaFin(forms.Form):
+    busqueda_fin=forms.CharField(label='Buscador',max_length=20)

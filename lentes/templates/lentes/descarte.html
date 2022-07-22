@@ -35,12 +35,14 @@
                                 
                                 <label class="form-label">Peso en gramos</label><br>
                                 {% render_field formulario.peso_en_kg %}<br>
+                                
+                                <label class="form-label">Turno</label><br>
+                                {% render_field formulario.turno %}<br>
+                                
                                 {% render_field formulario.piezas_descartadas class='oculto' %}
                                 {% render_field formulario.piezas_buenas class='oculto'%}
-                                {% render_field formulario.piezas_malas class='oculto'%}<br>
-                                
-                                <input type="submit" value="Guardar" onclick="Control.Descarte()"/>
-                                                                   
+                                {% render_field formulario.piezas_malas class='oculto'%}<br>                       
+                                <input type="submit" value="Guardar" onclick="Control.Descarte()"/>                                    
                             </form>
                         </div>
                     </div>  

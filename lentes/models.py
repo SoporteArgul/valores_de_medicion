@@ -4,7 +4,7 @@ from django.utils import timezone
 proceso_status=(('hc','Hc'),('af','Af'))
 lente_status=[('argon','Argon'),('ecoline','Ecoline'),('mig','Mig'),('fall dual','Fall dual'),('argon elite','Argon Elite'),('neon','Neon'),('new classic','New classic'),('aviator','Aviator')]
 lente_tipo=[('argon','Argon'),('ecoline','Ecoline'),('mig','Mig'),('neon','Neon')]
-
+turno_trabajo=[('mañana','Mañana'),('tarde','Tarde'),('noche','Noche')]
 
 
 class tiempo_de_carro(models.Model):
@@ -34,6 +34,20 @@ class tiempo_de_carro(models.Model):
         max_length=50,
         default = None,
         null=True)
+
+    turno= models.CharField(
+        max_length=10,
+        null=False,
+        blank=False,
+        choices=turno_trabajo,
+        default='mañana',
+        )
+    
+    fecha_hora=models.DateTimeField(
+        blank=False,
+        null=False,
+        default=timezone.now()
+        )
 
 
     class Meta:
@@ -103,6 +117,20 @@ class control_de_descartes(models.Model):
             null=False,  
             blank=False
         )
+
+        turno= models.CharField(
+        max_length=10,
+        null=False,
+        blank=False,
+        choices=turno_trabajo,
+        default='mañana',
+        )
+    
+        fecha_hora=models.DateTimeField(
+            blank=False,
+            null=False,
+            default=timezone.now()
+        )
         
         class Meta:
             db_table = 'control_de_descartes'
@@ -141,6 +169,19 @@ class  fin_de_op(models.Model):
         null=False,  
         blank=False
     )
+    turno= models.CharField(
+        max_length=10,
+        null=False,
+        blank=False,
+        choices=turno_trabajo,
+        default='mañana',
+        )
+    
+    fecha_hora=models.DateTimeField(
+        blank=False,
+        null=False,
+        default=timezone.now()
+        )
 
     class Meta:
         db_table = 'fin de operacion'

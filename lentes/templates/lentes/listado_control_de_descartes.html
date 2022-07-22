@@ -1,0 +1,68 @@
+{% extends 'lentes/index.html' %}
+
+{% block Contenido %}
+
+
+
+<form action="{% url 'lista_control_de_descrate' %}" method='get'>
+    {% csrf_token %}
+    {{buscador}}    
+    <input type='submit' placeholder='enviar'>
+ </form>
+ <br>
+ {% if dato %}
+     {% for item in elemento_buscado  %}
+        <li>
+            {{item.t_ant_caja_n}}
+            {{item.t_ant_cantidad_n}}
+            {{item.t_act_caja_n}}
+            {{item.t_act_cantidad_n}}
+            {{item.tipo_lente}}
+            {{item.peso_en_kg}}
+            {{item.turno}}
+            {{item.piezas_buenas}}
+            {{item.piezas_malas}}
+            {{item.piezas_descartadas}}
+            {{item.fecha_hora}}
+        </li>
+     {% endfor %}
+ {% else %}
+     No se busco nada....
+ {% endif %}
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Cant. Anterior</th>
+        <th scope="col">Cant. Anterior</th>
+        <th scope="col">Cant. Actual</th>
+        <th scope="col">Cant. Actual</th>
+        <th scope="col">Tipo Lente</th>
+        <th scope="col">Turno</th>
+        <th scope="col">Piezas Buenas</th>
+        <th scope="col">Piezas Malas</th>
+        <th scope="col">Piezas Descartads</th>
+        <th scope="col">Fecha y hora</th>
+      </tr>
+    </thead>
+    {% for item in datos  %}
+        <tbody>
+        <tr>
+            <td>{{item.t_ant_caja_n}}</td>
+            <td>{{item.t_ant_cantidad_n}}</td>
+            <td>{{item.t_act_caja_n}}</td>
+            <td>{{item.t_act_cantidad_n}}</td>
+            <td>{{item.tipo_lente}}</td>
+            <td>{{item.turno}}<td>
+            <td>{{item.peso_en_kg}}<td>
+            <td>{{item.piezas_buenas}}<td>
+            <td>{{item.piezas_malas}}<td>
+            <td>{{item.piezas_descartadas}}%<td>
+            <td>{{item.fecha_hora}}<td>
+        </tr>
+        </tbody>
+    {% endfor %}
+  </table>
+
+
+{% endblock Contenido %}

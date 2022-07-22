@@ -1,0 +1,54 @@
+{% extends 'lentes/index.html' %}
+
+{% block Contenido %}
+
+
+
+<form action="{% url 'lista_tiempo_de_carro' %}" method='get'>
+    {% csrf_token %}
+    {{buscador}}    
+    <input type='submit' placeholder='enviar'>
+ </form>
+ <br>
+ {% if dato %}
+     {% for item in elemento_buscado  %}
+        <li>
+            {{item.tipo_proceso}}
+            {{item.tipo_lente}}
+            {{item.tiempo_ciclo}}
+            {{item.tiempo_carro}}
+            {{item.turno}}
+            {{item.fecha_hora}}
+        </li>
+     {% endfor %}
+ {% else %}
+     No se busco nada....
+ {% endif %}
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Tipo Proceso</th>
+        <th scope="col">Tipo Lente</th>
+        <th scope="col">Tiempo de Ciclo</th>
+        <th scope="col">Tiempo de Carro</th>
+        <th scope="col">Turno</th>
+        <th scope="col">Fecha y hora</th>
+      </tr>
+    </thead>
+    {% for item in datos  %}
+        <tbody>
+        <tr>
+            <td>{{item.tipo_proceso}}</td>
+            <td>{{item.tipo_lente}}</td>
+            <td>{{item.tiempo_ciclo}}</td>
+            <td>{{item.tiempo_carro}}</td>
+            <td>{{item.turno}}</td>
+            <td>{{item.fecha_hora}}<td>
+        </tr>
+        </tbody>
+    {% endfor %}
+  </table>
+
+
+{% endblock Contenido %}
