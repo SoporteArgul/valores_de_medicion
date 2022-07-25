@@ -4,7 +4,7 @@
 
 
 
-<form action="{% url 'lista_control_de_descrate' %}" method='get'>
+<form action="{% url 'lista_control_de_descarte' %}" method='get'>
     {% csrf_token %}
     {{buscador}}    
     <input type='submit' placeholder='enviar'>
@@ -26,8 +26,6 @@
             {{item.fecha_hora}}
         </li>
      {% endfor %}
- {% else %}
-     No se busco nada....
  {% endif %}
 
 <table class="table table-striped">
@@ -39,6 +37,7 @@
         <th scope="col">Cant. Actual</th>
         <th scope="col">Tipo Lente</th>
         <th scope="col">Turno</th>
+        <th scope="col">Peso</th>
         <th scope="col">Piezas Buenas</th>
         <th scope="col">Piezas Malas</th>
         <th scope="col">Piezas Descartads</th>
@@ -53,12 +52,12 @@
             <td>{{item.t_act_caja_n}}</td>
             <td>{{item.t_act_cantidad_n}}</td>
             <td>{{item.tipo_lente}}</td>
-            <td>{{item.turno}}<td>
-            <td>{{item.peso_en_kg}}<td>
-            <td>{{item.piezas_buenas}}<td>
-            <td>{{item.piezas_malas}}<td>
-            <td>{{item.piezas_descartadas}}%<td>
-            <td>{{item.fecha_hora}}<td>
+            <td>{{item.turno}}</td>
+            <td>{{item.peso_en_kg}}</td>
+            <td>{{item.piezas_buenas}}</td>
+            <td>{{item.piezas_malas}}</td>
+            <td>{{item.piezas_descartadas}}%</td>
+            <td>{{item.fecha_hora}}</td>
         </tr>
         </tbody>
     {% endfor %}

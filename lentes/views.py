@@ -64,10 +64,10 @@ def tabla_control_de_descartes(request):
      elemento_buscado=[]
      dato=request.GET.get('busqueda_carro',None)
      if dato is not None:
-       elemento_buscado=ModeloControlDescartes.objects.filter(turno__icontains=dato)
+       elemento_buscado=ModeloControlDescartes.objects.filter(fecha_hora__icontains=dato)
        
      buscador=BusquedaControl()  
-     return render(request,'lentes/listado_control_descartes.html',{ 'elemento_buscado':elemento_buscado,
+     return render(request,'lentes/listado_control_de_descartes.html',{ 'elemento_buscado':elemento_buscado,
                                                                   'buscador':buscador,
                                                                   'dato':dato,
                                                                   'datos':datos

@@ -17,6 +17,7 @@
                         <div class="row">
                             <form method='post' action="{% url 'control_de_descartes' %}" name='formControlDescartes'>
                                 {% csrf_token %}
+                                <div class='sidebar-box '>
                                 <label class="form-label">Turno Anterior</label><br>
                                 {% render_field formulario.t_ant_caja_n %}
                                 /
@@ -31,7 +32,7 @@
                                 {% render_field formulario.piezas_por_caja %} <br>
                                 
                                 <label class="form-label">Tipo de Lente</label><br>
-                                {% render_field formulario.tipo_lente %}<br><br>
+                                {% render_field formulario.tipo_lente %}<br>
                                 
                                 <label class="form-label">Peso en gramos</label><br>
                                 {% render_field formulario.peso_en_kg %}<br>
@@ -41,7 +42,8 @@
                                 
                                 {% render_field formulario.piezas_descartadas class='oculto' %}
                                 {% render_field formulario.piezas_buenas class='oculto'%}
-                                {% render_field formulario.piezas_malas class='oculto'%}<br>                       
+                                {% render_field formulario.piezas_malas class='oculto'%}<br>
+                                </div>                       
                                 <input type="submit" value="Guardar" onclick="Control.Descarte()"/>                                    
                             </form>
                         </div>
